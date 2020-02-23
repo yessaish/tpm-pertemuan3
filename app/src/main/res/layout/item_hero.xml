@@ -15,6 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="3"
+            android:layout_margin="10dp"
             android:src="@drawable/ahmad_dahlan">
 
         </ImageView>
@@ -23,16 +24,19 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
             android:layout_weight="1">
 
             <TextView
                 android:id="@+id/itemHero_tv_nama"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:text="Ahmad Dahlan"
                 android:textAlignment="center"
-                android:textSize="30sp">
+                android:layout_marginBottom="10dp"
+                android:textSize="20sp">
 
             </TextView>
 
@@ -40,7 +44,6 @@
                 android:id="@+id/itemHero_tv_deskripsi"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:text="Deskripsi">
 
             </TextView>
