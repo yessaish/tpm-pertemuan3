@@ -26,5 +26,6 @@ public class IsiActivity extends AppCompatActivity {
         String nama = getIntent().getStringExtra("nama");
 
         tvNama.setText(nama);
+
     }
 }
