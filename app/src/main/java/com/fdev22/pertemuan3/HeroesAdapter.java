@@ -1,6 +1,7 @@
 package com.fdev22.pertemuan3;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,21 +36,30 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.ViewHolder
     @NonNull
     @Override
     public HeroesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_hero,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_hero, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HeroesAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final HeroesAdapter.ViewHolder holder, final int position) {
         holder.tvName.setText(getHeroes().get(position).getHeroName());
         holder.tvDetail.setText(getHeroes().get(position).getHeroDetail());
 
         Glide.with(context).load(getHeroes().get(position).getHeroImage()).into(holder.ivHero);
 
+
         holder.tvDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context,getHeroes().get(position).getHeroName(),Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(context,IsiActivity.class);
+
+                String isi = getHeroes().get(position).getHeroDetail();
+                intent.putExtra("isi",isi);
+
+                String nama = getHeroes().get(position).getHeroName();
+                intent.putExtra("nama",nama);
+
+                context.startActivity(intent);
             }
         });
     }
@@ -62,13 +72,13 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.ViewHolder
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         ImageView ivHero;
-        TextView tvName,tvDetail;
+        TextView tvName, tvDetail;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivHero=itemView.findViewById(R.id.itemHero_iv_foto);
-            tvName=itemView.findViewById(R.id.itemHero_tv_nama);
-            tvDetail=itemView.findViewById(R.id.itemHero_tv_deskripsi);
+            ivHero = itemView.findViewById(R.id.itemHero_iv_foto);
+            tvName = itemView.findViewById(R.id.itemHero_tv_nama);
+            tvDetail = itemView.findViewById(R.id.itemHero_tv_deskripsi);
         }
     }
 }
