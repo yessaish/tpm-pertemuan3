@@ -47,7 +47,6 @@ public class HeroesAdapter extends RecyclerView.Adapter<HeroesAdapter.ViewHolder
 
         Glide.with(context).load(getHeroes().get(position).getHeroImage()).into(holder.ivHero);
 
-
         holder.tvDetail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
